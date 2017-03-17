@@ -8,13 +8,9 @@ console.log(Redux);
 
 
 // THE REDUCER //
-// the redcuer is a function
-// the function reducer always tech a state and an action 
-// the reducer ll return the new state in that specific case ll return a number
+var reducer = function(state = 0, action){ 
 
-var reducer = function(state = 0, action){ // we pass to the function the state (wich need to be initialised) and an action wich is an object wich have a .type property 
-
-	switch (action.type) { // we chech the the property type of the object action (action.type) if it s egale to INCREMENT or DECREMENT to change the state
+	switch (action.type) { 
 		case "INCREMENT":
 			return state + 1;
 			
@@ -30,7 +26,6 @@ var reducer = function(state = 0, action){ // we pass to the function the state 
 
 
 // THE STORE //
-// Then I create the store made from REdux and pass it the reducer we juste crete
 var store = Redux.createStore(reducer);
 store.subscribe(render);  //IMPORTANT// WE CALL THE METHODE SUBSCRIBER
 //this methode expect a function has parameter and it s going to call the function each time the state changing
